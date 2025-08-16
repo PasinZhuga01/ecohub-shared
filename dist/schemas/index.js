@@ -33,5 +33,6 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Schemas = void 0;
-exports.Schemas = __importStar(require("./schemas"));
+exports.Requests = exports.Common = void 0;
+exports.Common = __importStar(require("./common.schemas"));
+exports.Requests = __importStar(require("./requests"));
