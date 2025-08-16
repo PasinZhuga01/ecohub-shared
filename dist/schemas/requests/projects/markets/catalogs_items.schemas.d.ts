@@ -8,15 +8,19 @@ export declare const create: z.ZodObject<{
     count: z.ZodNumber;
     price: z.ZodNumber;
 }, z.core.$strip>;
-export declare const edit: z.ZodObject<{
+export declare const edit: z.ZodUnion<readonly [z.ZodObject<{
     id: z.ZodNumber;
-    component: z.ZodUnion<readonly [z.ZodLiteral<"count">, z.ZodLiteral<"price">]>;
+    component: z.ZodLiteral<"count">;
     value: z.ZodNumber;
-}, z.core.$strip>;
+}, z.core.$strip>, z.ZodObject<{
+    id: z.ZodNumber;
+    component: z.ZodLiteral<"price">;
+    value: z.ZodNumber;
+}, z.core.$strip>]>;
 export declare const remove: z.ZodObject<{
     id: z.ZodNumber;
 }, z.core.$strip>;
-export type GetRequest = z.infer<typeof get>;
-export type CreateRequest = z.infer<typeof create>;
-export type EditRequest = z.infer<typeof edit>;
-export type RemoveRequest = z.infer<typeof remove>;
+export type GetRequest = z.input<typeof get>;
+export type CreateRequest = z.input<typeof create>;
+export type EditRequest = z.input<typeof edit>;
+export type RemoveRequest = z.input<typeof remove>;

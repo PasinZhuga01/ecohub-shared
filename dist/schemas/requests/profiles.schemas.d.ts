@@ -4,4 +4,4 @@ export declare const auth: z.ZodObject<{
     login: z.ZodString;
     password: z.ZodString;
 }, z.core.$strip>;
-export type AuthRequest = z.infer<typeof auth>;
+export type AuthRequest = z.input<typeof auth>;

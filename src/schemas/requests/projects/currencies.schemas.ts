@@ -1,24 +1,32 @@
 import { z } from 'zod';
 
-import { id } from '../../common.schemas';
+import { project, currency } from '../../db.schemas';
 
-const name = z.string().min(1).max(80);
-const rate = z.number().int().min(1);
+export const get = z.object({
+	projectId: project.shape.id
+});
 
-export const get = z.object({ projectId: id });
 export const create = z.object({
-	projectId: id,
+	projectId: project.shape.id,
 	icon: z
 		.file()
 		.refine((file) => file.size <= 20 * 1024 * 1024)
 		.refine((file) => ['image/png', 'image/jpeg'].includes(file.type)),
-	name,
-	rate
+	name: currency.shape.name,
+	rate: currency.shape.rate
 });
-export const rerate = z.object({ id, rate });
-export const remove = z.object({ id });
+
+export const rerate = z.object({
+	id: currency.shape.id,
+	rate: currency.shape.rate
+});
+
+export const remove = z.object({
+	id: currency.shape.id
+});
+
 export const shift = z.object({
-	projectId: id,
+	projectId: project.shape.id,
 	value: z.number().int().min(1)
 });
 

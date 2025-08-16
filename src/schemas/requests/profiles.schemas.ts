@@ -1,9 +1,11 @@
 import { z } from 'zod';
 
+import { user } from '../db.schemas';
+
 export const auth = z.object({
 	isRegister: z.boolean(),
-	login: z.string().min(1).max(80),
-	password: z.string().min(1).max(255)
+	login: user.shape.login,
+	password: user.shape.password
 });
 
 export type AuthRequest = z.input<typeof auth>;

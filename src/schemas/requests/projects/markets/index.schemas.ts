@@ -1,13 +1,24 @@
 import { z } from 'zod';
 
-import { id } from '../../../common.schemas';
+import { project, market } from '../../../db.schemas';
 
-const name = z.string().min(1).max(80);
+export const get = z.object({
+	projectId: project.shape.id
+});
 
-export const get = z.object({ projectId: id });
-export const create = z.object({ projectId: id, name });
-export const rename = z.object({ id, name });
-export const remove = z.object({ id });
+export const create = z.object({
+	projectId: project.shape.id,
+	name: market.shape.name
+});
+
+export const rename = z.object({
+	id: market.shape.id,
+	name: market.shape.name
+});
+
+export const remove = z.object({
+	id: market.shape.id
+});
 
 export type GetRequest = z.input<typeof get>;
 export type CreateRequest = z.input<typeof create>;

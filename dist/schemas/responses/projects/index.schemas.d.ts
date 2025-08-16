@@ -1,4 +1,4 @@
-import { SuccessResponse } from '../../common.schemas';
+import { SuccessResponse } from '../common.schemas';
 export type GetResponse = {
     id: number;
     name: string;

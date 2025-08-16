@@ -13,7 +13,7 @@ export declare const rename: z.ZodObject<{
 export declare const remove: z.ZodObject<{
     id: z.ZodNumber;
 }, z.core.$strip>;
-export type GetRequest = z.infer<typeof get>;
-export type CreateRequest = z.infer<typeof create>;
-export type RenameRequest = z.infer<typeof rename>;
-export type RemoveRequest = z.infer<typeof remove>;
+export type GetRequest = z.input<typeof get>;
+export type CreateRequest = z.input<typeof create>;
+export type RenameRequest = z.input<typeof rename>;
+export type RemoveRequest = z.input<typeof remove>;
