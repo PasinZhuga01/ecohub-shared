@@ -33,7 +33,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Responses = exports.Requests = exports.Common = void 0;
-exports.Common = __importStar(require("./common.schemas"));
-exports.Requests = __importStar(require("./requests"));
-exports.Responses = __importStar(require("./responses"));
+exports.CartsItems = exports.CatalogsItems = exports.Markets = void 0;
+exports.Markets = __importStar(require("./index.schemas"));
+exports.CatalogsItems = __importStar(require("./catalogs_items.schemas"));
+exports.CartsItems = __importStar(require("./carts_items.schemas"));
