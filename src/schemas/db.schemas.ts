@@ -42,3 +42,10 @@ export const cartItem = identifiedObject.extend({
 	catalog_item_id: identifiedObject.shape.id,
 	count: z.number().int().min(1)
 });
+
+export type UserSchema = z.input<typeof user>;
+export type ProjectSchema = z.input<typeof project>;
+export type CurrencySchema = z.input<typeof currency>;
+export type MarketSchema = z.input<typeof market>;
+export type CatalogItemSchema = z.input<typeof catalogItem>;
+export type CartItemSchema = z.input<typeof cartItem>;

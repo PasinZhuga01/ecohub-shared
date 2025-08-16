@@ -39,3 +39,9 @@ export declare const cartItem: z.ZodObject<{
     catalog_item_id: z.ZodNumber;
     count: z.ZodNumber;
 }, z.core.$strip>;
+export type UserSchema = z.input<typeof user>;
+export type ProjectSchema = z.input<typeof project>;
+export type CurrencySchema = z.input<typeof currency>;
+export type MarketSchema = z.input<typeof market>;
+export type CatalogItemSchema = z.input<typeof catalogItem>;
+export type CartItemSchema = z.input<typeof cartItem>;
