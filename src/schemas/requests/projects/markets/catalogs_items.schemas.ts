@@ -14,7 +14,7 @@ export const edit = z.object({
 });
 export const remove = z.object({ id });
 
-export type GetRequest = z.infer<typeof get>;
-export type CreateRequest = z.infer<typeof create>;
-export type EditRequest = z.infer<typeof edit>;
-export type RemoveRequest = z.infer<typeof remove>;
+export type GetRequest = z.input<typeof get>;
+export type CreateRequest = z.input<typeof create>;
+export type EditRequest = z.input<typeof edit>;
+export type RemoveRequest = z.input<typeof remove>;

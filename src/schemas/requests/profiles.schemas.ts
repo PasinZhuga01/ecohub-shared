@@ -6,4 +6,4 @@ export const auth = z.object({
 	password: z.string().min(1).max(255)
 });
 
-export type AuthRequest = z.infer<typeof auth>;
+export type AuthRequest = z.input<typeof auth>;

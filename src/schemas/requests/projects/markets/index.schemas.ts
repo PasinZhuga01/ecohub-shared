@@ -9,7 +9,7 @@ export const create = z.object({ projectId: id, name });
 export const rename = z.object({ id, name });
 export const remove = z.object({ id });
 
-export type GetRequest = z.infer<typeof get>;
-export type CreateRequest = z.infer<typeof create>;
-export type RenameRequest = z.infer<typeof rename>;
-export type RemoveRequest = z.infer<typeof remove>;
+export type GetRequest = z.input<typeof get>;
+export type CreateRequest = z.input<typeof create>;
+export type RenameRequest = z.input<typeof rename>;
+export type RemoveRequest = z.input<typeof remove>;

@@ -22,8 +22,8 @@ export const shift = z.object({
 	value: z.number().int().min(1)
 });
 
-export type GetRequest = z.infer<typeof get>;
-export type CreateRequest = z.infer<typeof create>;
-export type RerateRequest = z.infer<typeof rerate>;
-export type RemoveRequest = z.infer<typeof remove>;
-export type ShiftRequest = z.infer<typeof shift>;
+export type GetRequest = z.input<typeof get>;
+export type CreateRequest = z.input<typeof create>;
+export type RerateRequest = z.input<typeof rerate>;
+export type RemoveRequest = z.input<typeof remove>;
+export type ShiftRequest = z.input<typeof shift>;

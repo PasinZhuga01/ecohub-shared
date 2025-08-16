@@ -11,8 +11,8 @@ export const recount = z.object({
 export const remove = z.object({ id });
 export const clear = z.object({ marketId: id });
 
-export type GetRequest = z.infer<typeof get>;
-export type AddRequest = z.infer<typeof add>;
-export type RecountRequest = z.infer<typeof recount>;
-export type RemoveRequest = z.infer<typeof remove>;
-export type ClearRequest = z.infer<typeof clear>;
+export type GetRequest = z.input<typeof get>;
+export type AddRequest = z.input<typeof add>;
+export type RecountRequest = z.input<typeof recount>;
+export type RemoveRequest = z.input<typeof remove>;
+export type ClearRequest = z.input<typeof clear>;
