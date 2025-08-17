@@ -43,9 +43,9 @@ export const cartItem = identifiedObject.extend({
 	count: z.number().int().min(1)
 });
 
-export type UserSchema = z.input<typeof user>;
-export type ProjectSchema = z.input<typeof project>;
-export type CurrencySchema = z.input<typeof currency>;
-export type MarketSchema = z.input<typeof market>;
-export type CatalogItemSchema = z.input<typeof catalogItem>;
-export type CartItemSchema = z.input<typeof cartItem>;
+export type UserObject = z.input<typeof user>;
+export type ProjectObject = z.input<typeof project>;
+export type CurrencyObject = z.input<typeof currency>;
+export type MarketObject = z.input<typeof market>;
+export type CatalogItemObject = z.input<typeof catalogItem>;
+export type CartItemObject = z.input<typeof cartItem>;
