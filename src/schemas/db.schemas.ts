@@ -43,6 +43,10 @@ export const cartItem = identifiedObject.extend({
 	count: z.number().int().min(1)
 });
 
+/* types */
+
+export type IdentifiedObject = z.input<typeof identifiedObject>;
+
 export type UserObject = z.input<typeof user>;
 export type ProjectObject = z.input<typeof project>;
 export type CurrencyObject = z.input<typeof currency>;
