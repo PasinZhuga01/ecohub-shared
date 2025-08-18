@@ -1,12 +1,13 @@
 import { SuccessResponse } from '../common.schemas';
-export type GetResponse = {
+export type GetNavResponse = {
     id: number;
     name: string;
     markets: {
         id: number;
         name: string;
     }[];
-}[] | {
+}[];
+export type GetPageResponse = {
     id: number;
     name: string;
     interactedAd: string;
