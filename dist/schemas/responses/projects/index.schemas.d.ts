@@ -10,7 +10,7 @@ export type GetNavResponse = {
 export type GetPageResponse = {
     id: number;
     name: string;
-    interactedAd: string;
+    interactedAt: string;
 }[];
 export type CreateResponse = {
     id: number;
