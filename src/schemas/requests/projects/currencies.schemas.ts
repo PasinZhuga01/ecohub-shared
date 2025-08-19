@@ -8,10 +8,6 @@ export const get = z.object({
 
 export const create = z.object({
 	projectId: project.shape.id,
-	icon: z
-		.file()
-		.refine((file) => file.size <= 20 * 1024 * 1024)
-		.refine((file) => ['image/png', 'image/jpeg'].includes(file.type)),
 	name: currency.shape.name,
 	rate: currency.shape.rate
 });

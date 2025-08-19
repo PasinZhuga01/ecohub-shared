@@ -8,10 +8,6 @@ exports.get = zod_1.z.object({
 });
 exports.create = zod_1.z.object({
     projectId: db_schemas_1.project.shape.id,
-    icon: zod_1.z
-        .file()
-        .refine((file) => file.size <= 20 * 1024 * 1024)
-        .refine((file) => ['image/png', 'image/jpeg'].includes(file.type)),
     name: db_schemas_1.currency.shape.name,
     rate: db_schemas_1.currency.shape.rate
 });

@@ -4,7 +4,6 @@ export declare const get: z.ZodObject<{
 }, z.core.$strip>;
 export declare const create: z.ZodObject<{
     projectId: z.ZodNumber;
-    icon: z.ZodFile;
     name: z.ZodString;
     rate: z.ZodNumber;
 }, z.core.$strip>;
