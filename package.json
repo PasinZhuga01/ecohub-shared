@@ -1,8 +1,6 @@
 {
 	"name": "ecohub-shared",
 	"version": "1.0.0",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -14,5 +12,22 @@
 		"rimraf": "^6.0.1",
 		"typescript": "^5.9.2",
 		"zod": "^4.0.17"
+	},
+	"exports": {
+		"./schemas/db": {
+			"import": "./dist/schemas/db.schemas.js",
+			"require": "./dist/schemas/db.schemas.js",
+			"types": "./dist/schemas/db.schemas.d.ts"
+		},
+		"./schemas/requests": {
+			"import": "./dist/schemas/requests/index.js",
+			"require": "./dist/schemas/requests/index.js",
+			"types": "./dist/schemas/requests/index.d.ts"
+		},
+		"./schemas/responses": {
+			"import": "./dist/schemas/responses/index.js",
+			"require": "./dist/schemas/responses/index.js",
+			"types": "./dist/schemas/responses/index.d.ts"
+		}
 	}
 }
