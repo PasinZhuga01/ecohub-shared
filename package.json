@@ -28,6 +28,16 @@
 			"import": "./dist/schemas/responses/index.js",
 			"require": "./dist/schemas/responses/index.js",
 			"types": "./dist/schemas/responses/index.d.ts"
+		},
+		"./types/http": {
+			"import": "./dist/types/http.js",
+			"require": "./dist/types/http.js",
+			"types": "./dist/types/http.d.ts"
+		},
+		"./constants/http": {
+			"import": "./dist/constants/http.js",
+			"require": "./dist/constants/http.js",
+			"types": "./dist/constants/http.d.ts"
 		}
 	}
 }
