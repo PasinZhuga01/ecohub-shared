@@ -19,15 +19,10 @@
 			"require": "./dist/schemas/db.schemas.js",
 			"types": "./dist/schemas/db.schemas.d.ts"
 		},
-		"./schemas/requests": {
-			"import": "./dist/schemas/requests/index.js",
-			"require": "./dist/schemas/requests/index.js",
-			"types": "./dist/schemas/requests/index.d.ts"
-		},
-		"./schemas/responses": {
-			"import": "./dist/schemas/responses/index.js",
-			"require": "./dist/schemas/responses/index.js",
-			"types": "./dist/schemas/responses/index.d.ts"
+		"./schemas/api": {
+			"import": "./dist/schemas/api/index.js",
+			"require": "./dist/schemas/api/index.js",
+			"types": "./dist/schemas/api/index.d.ts"
 		},
 		"./http/codes": {
 			"import": "./dist/http/codes.js",
