@@ -24,6 +24,11 @@
 			"require": "./dist/schemas/api/index.js",
 			"types": "./dist/schemas/api/index.d.ts"
 		},
+		"./schemas/api/types": {
+			"import": "./dist/schemas/api/types.js",
+			"require": "./dist/schemas/api/types.js",
+			"types": "./dist/schemas/api/types.d.ts"
+		},
 		"./http/codes": {
 			"import": "./dist/http/codes.js",
 			"require": "./dist/http/codes.js",
