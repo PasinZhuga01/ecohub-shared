@@ -29,15 +29,15 @@
 			"require": "./dist/schemas/responses/index.js",
 			"types": "./dist/schemas/responses/index.d.ts"
 		},
-		"./types/http": {
-			"import": "./dist/types/http.js",
-			"require": "./dist/types/http.js",
-			"types": "./dist/types/http.d.ts"
+		"./http/codes": {
+			"import": "./dist/http/codes.js",
+			"require": "./dist/http/codes.js",
+			"types": "./dist/http/codes.d.ts"
 		},
-		"./constants/http": {
-			"import": "./dist/constants/http.js",
-			"require": "./dist/constants/http.js",
-			"types": "./dist/constants/http.d.ts"
+		"./http/types": {
+			"import": "./dist/http/types.js",
+			"require": "./dist/http/types.js",
+			"types": "./dist/http/types.d.ts"
 		}
 	}
 }

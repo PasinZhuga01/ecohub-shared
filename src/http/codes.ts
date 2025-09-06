@@ -1,4 +1,4 @@
-export const ErrorCodes = {
+export default {
 	INVALID_CREDENTIALS: 400,
 	INVALID_RELATIONS: 400,
 	LOGIN_TAKEN: 400,
@@ -7,4 +7,4 @@ export const ErrorCodes = {
 	NOT_FOUND: 404,
 	NAME_TAKEN: 409,
 	INVALID_FORMAT: 422
-} as const;
+};

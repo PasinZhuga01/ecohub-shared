@@ -1,8 +1,8 @@
-import { ErrorCodes } from '../constants/http';
+import codes from './codes';
 
 /* payloads interfaces */
 
-interface BaseErrorPayload<T extends keyof typeof ErrorCodes> {
+interface BaseErrorPayload<T extends keyof typeof codes> {
 	code: T;
 }
 
@@ -25,4 +25,4 @@ type EmptyErrorPayload = BaseErrorPayload<'INVALID_SESSION' | 'ACCESS_DENIED' | 
 export type Resource = 'profile' | 'project' | 'currency' | 'market' | 'catalog_item' | 'cart_item';
 
 export type ErrorPayload = EmptyErrorPayload | FormatErrorPayload | ResourceErrorPayload | RelationsErrorPayload;
-export type ErrorResponse = { status: (typeof ErrorCodes)[keyof typeof ErrorCodes] } & ErrorPayload;
+export type ErrorResponse = { status: (typeof codes)[keyof typeof codes] } & ErrorPayload;
