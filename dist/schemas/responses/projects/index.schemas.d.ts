@@ -1,4 +1,7 @@
 import { SuccessResponse } from '../common.schemas';
+export type GetResponse = {
+    name: string;
+};
 export type GetNavResponse = {
     id: number;
     name: string;

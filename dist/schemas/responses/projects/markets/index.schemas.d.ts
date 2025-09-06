@@ -1,5 +1,8 @@
 import { SuccessResponse } from '../../common.schemas';
 export type GetResponse = {
+    name: string;
+};
+export type GetListResponse = {
     id: number;
     name: string;
     interactedAt: string;
