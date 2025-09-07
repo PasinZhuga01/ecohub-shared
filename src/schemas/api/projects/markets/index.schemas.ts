@@ -14,6 +14,7 @@ export const api = {
 	subPaths: ['/projects/markets/catalogs_items', '/projects/markets/carts_items'],
 	endpoints: {
 		'/get_list': {
+			method: 'GET',
 			request: z.object({
 				projectId: project.shape.id
 			}),
@@ -26,6 +27,7 @@ export const api = {
 			)
 		},
 		'/get': {
+			method: 'GET',
 			request: z.object({
 				id: market.shape.id
 			}),
@@ -34,6 +36,7 @@ export const api = {
 			})
 		},
 		'/create': {
+			method: 'POST',
 			request: z.object({
 				projectId: project.shape.id,
 				name: market.shape.name
@@ -45,6 +48,7 @@ export const api = {
 			})
 		},
 		'/rename': {
+			method: 'PATCH',
 			request: z.object({
 				id: market.shape.id,
 				name: market.shape.name
@@ -54,6 +58,7 @@ export const api = {
 			})
 		},
 		'/remove': {
+			method: 'DELETE',
 			request: z.object({
 				id: market.shape.id
 			}),

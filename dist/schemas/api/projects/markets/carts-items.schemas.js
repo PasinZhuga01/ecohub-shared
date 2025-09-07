@@ -8,6 +8,7 @@ exports.api = {
     basePath: '/projects/markets/carts_items',
     endpoints: {
         '/get': {
+            method: 'GET',
             request: zod_1.z.object({
                 marketId: db_schemas_1.market.shape.id
             }),
@@ -18,6 +19,7 @@ exports.api = {
             }))
         },
         '/add': {
+            method: 'POST',
             request: zod_1.z.object({
                 marketId: db_schemas_1.market.shape.id,
                 catalogItemId: db_schemas_1.catalogItem.shape.id
@@ -29,6 +31,7 @@ exports.api = {
             })
         },
         '/recount': {
+            method: 'PATCH',
             request: zod_1.z.object({
                 id: db_schemas_1.cartItem.shape.id,
                 count: db_schemas_1.cartItem.shape.count
@@ -38,12 +41,14 @@ exports.api = {
             })
         },
         '/remove': {
+            method: 'DELETE',
             request: zod_1.z.object({
                 id: db_schemas_1.cartItem.shape.id
             }),
             response: common_schemas_1.successObject
         },
         '/clear': {
+            method: 'DELETE',
             request: zod_1.z.object({
                 marketId: db_schemas_1.market.shape.id
             }),

@@ -4,6 +4,7 @@ export declare const api: {
     basePath: "/profiles";
     endpoints: {
         '/auth': {
+            method: "POST";
             request: z.ZodObject<{
                 isRegister: z.ZodBoolean;
                 login: z.ZodString;
@@ -14,6 +15,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         '/get': {
+            method: "GET";
             request: z.ZodObject<{}, z.core.$strict>;
             response: z.ZodObject<{
                 login: z.ZodString;

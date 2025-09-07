@@ -4,6 +4,7 @@ export declare const api: {
     basePath: "/projects/currencies";
     endpoints: {
         '/get': {
+            method: "GET";
             request: z.ZodObject<{
                 projectId: z.ZodNumber;
             }, z.core.$strip>;
@@ -15,6 +16,7 @@ export declare const api: {
             }, z.core.$strip>>;
         };
         '/create': {
+            method: "POST";
             request: z.ZodObject<{
                 projectId: z.ZodNumber;
                 name: z.ZodString;
@@ -28,6 +30,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         '/rerate': {
+            method: "PATCH";
             request: z.ZodObject<{
                 id: z.ZodNumber;
                 rate: z.ZodNumber;
@@ -37,6 +40,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         '/remove': {
+            method: "DELETE";
             request: z.ZodObject<{
                 id: z.ZodNumber;
             }, z.core.$strip>;
@@ -45,6 +49,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         '/shift': {
+            method: "PATCH";
             request: z.ZodObject<{
                 projectId: z.ZodNumber;
                 value: z.ZodNumber;

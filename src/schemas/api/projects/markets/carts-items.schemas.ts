@@ -10,6 +10,7 @@ export const api = {
 	basePath: '/projects/markets/carts_items',
 	endpoints: {
 		'/get': {
+			method: 'GET',
 			request: z.object({
 				marketId: market.shape.id
 			}),
@@ -22,6 +23,7 @@ export const api = {
 			)
 		},
 		'/add': {
+			method: 'POST',
 			request: z.object({
 				marketId: market.shape.id,
 				catalogItemId: catalogItem.shape.id
@@ -33,6 +35,7 @@ export const api = {
 			})
 		},
 		'/recount': {
+			method: 'PATCH',
 			request: z.object({
 				id: cartItem.shape.id,
 				count: cartItem.shape.count
@@ -42,12 +45,14 @@ export const api = {
 			})
 		},
 		'/remove': {
+			method: 'DELETE',
 			request: z.object({
 				id: cartItem.shape.id
 			}),
 			response: successObject
 		},
 		'/clear': {
+			method: 'DELETE',
 			request: z.object({
 				marketId: market.shape.id
 			}),

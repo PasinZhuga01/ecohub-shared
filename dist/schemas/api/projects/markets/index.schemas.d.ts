@@ -5,6 +5,7 @@ export declare const api: {
     subPaths: ["/projects/markets/catalogs_items", "/projects/markets/carts_items"];
     endpoints: {
         '/get_list': {
+            method: "GET";
             request: z.ZodObject<{
                 projectId: z.ZodNumber;
             }, z.core.$strip>;
@@ -15,6 +16,7 @@ export declare const api: {
             }, z.core.$strip>>;
         };
         '/get': {
+            method: "GET";
             request: z.ZodObject<{
                 id: z.ZodNumber;
             }, z.core.$strip>;
@@ -23,6 +25,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         '/create': {
+            method: "POST";
             request: z.ZodObject<{
                 projectId: z.ZodNumber;
                 name: z.ZodString;
@@ -34,6 +37,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         '/rename': {
+            method: "PATCH";
             request: z.ZodObject<{
                 id: z.ZodNumber;
                 name: z.ZodString;
@@ -43,6 +47,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         '/remove': {
+            method: "DELETE";
             request: z.ZodObject<{
                 id: z.ZodNumber;
             }, z.core.$strip>;

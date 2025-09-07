@@ -4,6 +4,7 @@ export declare const api: {
     basePath: "/projects/markets/catalogs_items";
     endpoints: {
         '/get': {
+            method: "GET";
             request: z.ZodObject<{
                 marketId: z.ZodNumber;
             }, z.core.$strip>;
@@ -15,6 +16,7 @@ export declare const api: {
             }, z.core.$strip>>;
         };
         '/create': {
+            method: "POST";
             request: z.ZodObject<{
                 marketId: z.ZodNumber;
                 name: z.ZodString;
@@ -29,6 +31,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         '/edit': {
+            method: "PATCH";
             request: z.ZodUnion<readonly [z.ZodObject<{
                 id: z.ZodNumber;
                 component: z.ZodLiteral<"count">;
@@ -43,6 +46,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         '/remove': {
+            method: "DELETE";
             request: z.ZodObject<{
                 id: z.ZodNumber;
             }, z.core.$strip>;

@@ -4,6 +4,7 @@ type BaseApi<K extends string = string, B extends RoutePath = RoutePath, S exten
 	basePath: B;
 	endpoints: {
 		[route in K]: {
+			method: 'GET' | 'POST' | 'PATCH' | 'DELETE';
 			request: z.ZodTypeAny;
 			response: z.ZodTypeAny;
 		};

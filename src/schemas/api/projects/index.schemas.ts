@@ -14,6 +14,7 @@ export const api = {
 	subPaths: ['/projects/currencies', '/projects/markets'],
 	endpoints: {
 		'/get_nav': {
+			method: 'GET',
 			request: z.object({
 				maxCount: z.number().int().min(1)
 			}),
@@ -31,6 +32,7 @@ export const api = {
 			)
 		},
 		'/get_page': {
+			method: 'GET',
 			request: emptyObject,
 			response: z.array(
 				z.object({
@@ -41,6 +43,7 @@ export const api = {
 			)
 		},
 		'/get': {
+			method: 'GET',
 			request: z.object({
 				id: project.shape.id
 			}),
@@ -49,6 +52,7 @@ export const api = {
 			})
 		},
 		'/create': {
+			method: 'POST',
 			request: z.object({
 				name: project.shape.name
 			}),
@@ -59,6 +63,7 @@ export const api = {
 			})
 		},
 		'/rename': {
+			method: 'PATCH',
 			request: z.object({
 				id: project.shape.id,
 				name: project.shape.name
@@ -68,6 +73,7 @@ export const api = {
 			})
 		},
 		'/remove': {
+			method: 'DELETE',
 			request: z.object({
 				id: project.shape.id
 			}),

@@ -11,6 +11,7 @@ export const api = {
 	basePath: '/profiles',
 	endpoints: {
 		'/auth': {
+			method: 'POST',
 			request: z.object({
 				isRegister: z.boolean(),
 				login: user.shape.login,
@@ -21,6 +22,7 @@ export const api = {
 			})
 		},
 		'/get': {
+			method: 'GET',
 			request: emptyObject,
 			response: z.object({
 				login: user.shape.login

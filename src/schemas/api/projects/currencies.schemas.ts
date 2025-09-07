@@ -10,6 +10,7 @@ export const api = {
 	basePath: '/projects/currencies',
 	endpoints: {
 		'/get': {
+			method: 'GET',
 			request: z.object({
 				projectId: project.shape.id
 			}),
@@ -23,6 +24,7 @@ export const api = {
 			)
 		},
 		'/create': {
+			method: 'POST',
 			request: z.object({
 				projectId: project.shape.id,
 				name: currency.shape.name,
@@ -36,6 +38,7 @@ export const api = {
 			})
 		},
 		'/rerate': {
+			method: 'PATCH',
 			request: z.object({
 				id: currency.shape.id,
 				rate: currency.shape.rate
@@ -45,12 +48,14 @@ export const api = {
 			})
 		},
 		'/remove': {
+			method: 'DELETE',
 			request: z.object({
 				id: currency.shape.id
 			}),
 			response: successObject
 		},
 		'/shift': {
+			method: 'PATCH',
 			request: z.object({
 				projectId: project.shape.id,
 				value: currency.shape.rate
