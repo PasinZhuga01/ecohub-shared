@@ -5,7 +5,7 @@ type BaseApi<K extends string = string, B extends RoutePath = RoutePath, S exten
 	endpoints: {
 		[route in K]: {
 			isNotTokenRequired?: true;
-			method: 'GET' | 'POST' | 'PATCH' | 'DELETE';
+			method: Method;
 			request: z.ZodTypeAny;
 			response: z.ZodTypeAny;
 		};
@@ -13,6 +13,7 @@ type BaseApi<K extends string = string, B extends RoutePath = RoutePath, S exten
 } & (S['length'] extends 0 ? {} : { subPaths: S });
 
 export type Api<B extends RoutePath, S extends RoutePath[] = []> = BaseApi<RoutePath, B, S>;
+export type Method = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 export type RoutePath = `/${string}`;
 
 export type RelativeRoute<T extends BaseApi> = keyof T['endpoints'];
