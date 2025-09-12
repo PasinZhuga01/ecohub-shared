@@ -8,6 +8,7 @@ exports.api = {
     basePath: '/profiles',
     endpoints: {
         '/auth': {
+            isNotTokenRequired: true,
             method: 'POST',
             request: zod_1.z.object({
                 isRegister: zod_1.z.boolean(),

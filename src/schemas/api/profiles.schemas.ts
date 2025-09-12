@@ -11,6 +11,7 @@ export const api = {
 	basePath: '/profiles',
 	endpoints: {
 		'/auth': {
+			isNotTokenRequired: true,
 			method: 'POST',
 			request: z.object({
 				isRegister: z.boolean(),

@@ -4,6 +4,7 @@ export declare const api: {
     basePath: "/profiles";
     endpoints: {
         '/auth': {
+            isNotTokenRequired: true;
             method: "POST";
             request: z.ZodObject<{
                 isRegister: z.ZodBoolean;
