@@ -25,6 +25,11 @@ exports.api = {
         },
         '/get': {
             method: 'GET',
+            stringifyRequest: zod_1.z
+                .object({
+                id: zod_1.z.string()
+            })
+                .transform(({ id }) => ({ id: Number(id) })),
             request: zod_1.z.object({
                 id: db_schemas_1.market.shape.id
             }),

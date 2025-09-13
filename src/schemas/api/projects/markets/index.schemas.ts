@@ -27,7 +27,11 @@ export const api = {
 		},
 		'/get': {
 			method: 'GET',
-
+			stringifyRequest: z
+				.object({
+					id: z.string()
+				})
+				.transform(({ id }) => ({ id: Number(id) })),
 			request: z.object({
 				id: market.shape.id
 			}),

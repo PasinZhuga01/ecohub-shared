@@ -34,6 +34,13 @@ export declare const api: {
         };
         readonly '/get': {
             readonly method: "GET";
+            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+                id: z.ZodString;
+            }, z.core.$strip>, z.ZodTransform<{
+                id: number;
+            }, {
+                id: string;
+            }>>;
             readonly request: z.ZodObject<{
                 id: z.ZodNumber;
             }, z.core.$strip>;
