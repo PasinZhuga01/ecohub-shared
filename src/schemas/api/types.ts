@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
-type BaseApi<K extends string = string> = {
+export type Api = {
 	basePath: string;
 	endpoints: {
-		[route in K]: {
+		[route: string]: {
 			method: Method;
 			stringifyRequest?: z.ZodPipe<z.ZodObject<z.ZodRawShape>, z.ZodTransform<object>>;
 			request: z.ZodType;
@@ -12,12 +12,11 @@ type BaseApi<K extends string = string> = {
 	};
 };
 
-export type Api = BaseApi<`/${string}`>;
 export type Method = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 
-export type RelativeRoute<T extends BaseApi> = keyof T['endpoints'];
-export type AbsoluteRoute<T extends BaseApi> = `${T['basePath']}${RelativeRoute<T> & string}`;
+export type RelativeRoute<T extends Api> = keyof T['endpoints'];
+export type AbsoluteRoute<T extends Api> = `${T['basePath']}${RelativeRoute<T> & string}`;
 
-export type StringifyRequest<T extends BaseApi, K extends RelativeRoute<T>> = z.input<T['endpoints'][K]['stringifyRequest']>;
-export type Request<T extends BaseApi, K extends RelativeRoute<T>> = z.input<T['endpoints'][K]['request']>;
-export type Response<T extends BaseApi, K extends RelativeRoute<T>> = z.input<T['endpoints'][K]['response']>;
+export type StringifyRequest<T extends Api, K extends RelativeRoute<T>> = z.input<T['endpoints'][K]['stringifyRequest']>;
+export type Request<T extends Api, K extends RelativeRoute<T>> = z.input<T['endpoints'][K]['request']>;
+export type Response<T extends Api, K extends RelativeRoute<T>> = z.input<T['endpoints'][K]['response']>;
