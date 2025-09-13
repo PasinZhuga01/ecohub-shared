@@ -8,6 +8,7 @@ export const api = {
 	basePath: '/projects/currencies',
 	endpoints: {
 		'/get': {
+			method: 'GET',
 			stringifyRequest: z
 				.object({
 					projectId: z.string()
@@ -26,6 +27,7 @@ export const api = {
 			)
 		},
 		'/create': {
+			method: 'POST',
 			stringifyRequest: z
 				.object({
 					projectId: z.string(),
@@ -46,6 +48,7 @@ export const api = {
 			})
 		},
 		'/rerate': {
+			method: 'PATCH',
 			request: z.object({
 				id: currency.shape.id,
 				rate: currency.shape.rate
@@ -55,6 +58,7 @@ export const api = {
 			})
 		},
 		'/remove': {
+			method: 'DELETE',
 			stringifyRequest: z
 				.object({
 					id: z.string()
@@ -66,6 +70,7 @@ export const api = {
 			response: successObject
 		},
 		'/shift': {
+			method: 'PATCH',
 			request: z.object({
 				projectId: project.shape.id,
 				value: currency.shape.rate

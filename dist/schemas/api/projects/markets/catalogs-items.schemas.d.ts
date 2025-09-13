@@ -3,6 +3,7 @@ export declare const api: {
     readonly basePath: "/projects/markets/catalogs_items";
     readonly endpoints: {
         readonly '/get': {
+            readonly method: "GET";
             readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
                 marketId: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{
@@ -21,6 +22,7 @@ export declare const api: {
             }, z.core.$strip>>;
         };
         readonly '/create': {
+            readonly method: "POST";
             readonly request: z.ZodObject<{
                 marketId: z.ZodNumber;
                 name: z.ZodString;
@@ -35,6 +37,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         readonly '/edit': {
+            readonly method: "PATCH";
             readonly request: z.ZodUnion<readonly [z.ZodObject<{
                 id: z.ZodNumber;
                 component: z.ZodLiteral<"count">;
@@ -49,6 +52,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         readonly '/remove': {
+            readonly method: "DELETE";
             readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
                 id: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{

@@ -3,6 +3,7 @@ export declare const api: {
     readonly basePath: "/projects/currencies";
     readonly endpoints: {
         readonly '/get': {
+            readonly method: "GET";
             readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
                 projectId: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{
@@ -21,6 +22,7 @@ export declare const api: {
             }, z.core.$strip>>;
         };
         readonly '/create': {
+            readonly method: "POST";
             readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
                 projectId: z.ZodString;
                 name: z.ZodString;
@@ -47,6 +49,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         readonly '/rerate': {
+            readonly method: "PATCH";
             readonly request: z.ZodObject<{
                 id: z.ZodNumber;
                 rate: z.ZodNumber;
@@ -56,6 +59,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         readonly '/remove': {
+            readonly method: "DELETE";
             readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
                 id: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{
@@ -71,6 +75,7 @@ export declare const api: {
             }, z.core.$strip>;
         };
         readonly '/shift': {
+            readonly method: "PATCH";
             readonly request: z.ZodObject<{
                 projectId: z.ZodNumber;
                 value: z.ZodNumber;

@@ -19,6 +19,7 @@ exports.api = {
     basePath: '/projects/currencies',
     endpoints: {
         '/get': {
+            method: 'GET',
             stringifyRequest: zod_1.z
                 .object({
                 projectId: zod_1.z.string()
@@ -35,6 +36,7 @@ exports.api = {
             }))
         },
         '/create': {
+            method: 'POST',
             stringifyRequest: zod_1.z
                 .object({
                 projectId: zod_1.z.string(),
@@ -58,6 +60,7 @@ exports.api = {
             })
         },
         '/rerate': {
+            method: 'PATCH',
             request: zod_1.z.object({
                 id: db_schemas_1.currency.shape.id,
                 rate: db_schemas_1.currency.shape.rate
@@ -67,6 +70,7 @@ exports.api = {
             })
         },
         '/remove': {
+            method: 'DELETE',
             stringifyRequest: zod_1.z
                 .object({
                 id: zod_1.z.string()
@@ -78,6 +82,7 @@ exports.api = {
             response: common_schemas_1.successObject
         },
         '/shift': {
+            method: 'PATCH',
             request: zod_1.z.object({
                 projectId: db_schemas_1.project.shape.id,
                 value: db_schemas_1.currency.shape.rate

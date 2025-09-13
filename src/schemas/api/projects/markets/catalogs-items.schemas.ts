@@ -8,6 +8,7 @@ export const api = {
 	basePath: '/projects/markets/catalogs_items',
 	endpoints: {
 		'/get': {
+			method: 'GET',
 			stringifyRequest: z
 				.object({
 					marketId: z.string()
@@ -26,6 +27,7 @@ export const api = {
 			)
 		},
 		'/create': {
+			method: 'POST',
 			request: z.object({
 				marketId: market.shape.id,
 				name: catalogItem.shape.name,
@@ -40,6 +42,7 @@ export const api = {
 			})
 		},
 		'/edit': {
+			method: 'PATCH',
 			request: z.union([
 				z.object({
 					id: catalogItem.shape.id,
@@ -57,6 +60,7 @@ export const api = {
 			})
 		},
 		'/remove': {
+			method: 'DELETE',
 			stringifyRequest: z
 				.object({
 					id: z.string()

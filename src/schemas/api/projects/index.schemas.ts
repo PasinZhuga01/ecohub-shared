@@ -8,6 +8,7 @@ export const api = {
 	basePath: '/projects',
 	endpoints: {
 		'/get_nav': {
+			method: 'GET',
 			stringifyRequest: z
 				.object({
 					maxCount: z.string()
@@ -30,6 +31,7 @@ export const api = {
 			)
 		},
 		'/get_page': {
+			method: 'GET',
 			request: emptyObject,
 			response: z.array(
 				z.object({
@@ -40,6 +42,7 @@ export const api = {
 			)
 		},
 		'/get': {
+			method: 'GET',
 			request: z.object({
 				id: project.shape.id
 			}),
@@ -48,6 +51,7 @@ export const api = {
 			})
 		},
 		'/create': {
+			method: 'POST',
 			request: z.object({
 				name: project.shape.name
 			}),
@@ -58,6 +62,7 @@ export const api = {
 			})
 		},
 		'/rename': {
+			method: 'PATCH',
 			request: z.object({
 				id: project.shape.id,
 				name: project.shape.name
@@ -67,6 +72,7 @@ export const api = {
 			})
 		},
 		'/remove': {
+			method: 'DELETE',
 			stringifyRequest: z
 				.object({
 					id: z.string()

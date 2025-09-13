@@ -4,6 +4,7 @@ type BaseApi<K extends string = string> = {
 	basePath: string;
 	endpoints: {
 		[route in K]: {
+			method: Method;
 			stringifyRequest?: z.ZodPipe<z.ZodObject<z.ZodRawShape>, z.ZodTransform<object>>;
 			request: z.ZodType;
 			response: z.ZodType;
@@ -12,6 +13,7 @@ type BaseApi<K extends string = string> = {
 };
 
 export type Api = BaseApi<`/${string}`>;
+export type Method = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 
 export type RelativeRoute<T extends BaseApi> = keyof T['endpoints'];
 export type AbsoluteRoute<T extends BaseApi> = `${T['basePath']}${RelativeRoute<T> & string}`;
