@@ -4,13 +4,15 @@ import { Api } from '../types';
 import { successObject } from '../common.schemas';
 import { project, currency } from '../../db.schemas';
 
-export type BasePath = '/projects/currencies';
-
 export const api = {
 	basePath: '/projects/currencies',
 	endpoints: {
 		'/get': {
-			method: 'GET',
+			stringifyRequest: z
+				.object({
+					projectId: z.string()
+				})
+				.transform(({ projectId }) => ({ projectId: Number(projectId) })),
 			request: z.object({
 				projectId: project.shape.id
 			}),
@@ -24,7 +26,13 @@ export const api = {
 			)
 		},
 		'/create': {
-			method: 'POST',
+			stringifyRequest: z
+				.object({
+					projectId: z.string(),
+					name: z.string(),
+					rate: z.string()
+				})
+				.transform(({ projectId, rate, ...object }) => ({ ...object, projectId: Number(projectId), rate: Number(rate) })),
 			request: z.object({
 				projectId: project.shape.id,
 				name: currency.shape.name,
@@ -38,7 +46,6 @@ export const api = {
 			})
 		},
 		'/rerate': {
-			method: 'PATCH',
 			request: z.object({
 				id: currency.shape.id,
 				rate: currency.shape.rate
@@ -48,14 +55,17 @@ export const api = {
 			})
 		},
 		'/remove': {
-			method: 'DELETE',
+			stringifyRequest: z
+				.object({
+					id: z.string()
+				})
+				.transform(({ id }) => ({ id: Number(id) })),
 			request: z.object({
 				id: currency.shape.id
 			}),
 			response: successObject
 		},
 		'/shift': {
-			method: 'PATCH',
 			request: z.object({
 				projectId: project.shape.id,
 				value: currency.shape.rate
@@ -63,4 +73,4 @@ export const api = {
 			response: successObject
 		}
 	}
-} satisfies Api<BasePath>;
+} as const satisfies Api;

@@ -1,20 +1,18 @@
 import { z } from 'zod';
 
-import { BasePath as CatalogsItemsBasePath } from './catalogs-items.schemas';
-import { BasePath as CartsItemsBasePath } from './carts-items.schemas';
-
 import { Api } from '../../types';
 import { successObject } from '../../common.schemas';
 import { project, market } from '../../../db.schemas';
 
-export type BasePath = '/projects/markets';
-
 export const api = {
 	basePath: '/projects/markets',
-	subPaths: ['/projects/markets/catalogs_items', '/projects/markets/carts_items'],
 	endpoints: {
 		'/get_list': {
-			method: 'GET',
+			stringifyRequest: z
+				.object({
+					projectId: z.string()
+				})
+				.transform(({ projectId }) => ({ projectId: Number(projectId) })),
 			request: z.object({
 				projectId: project.shape.id
 			}),
@@ -27,7 +25,6 @@ export const api = {
 			)
 		},
 		'/get': {
-			method: 'GET',
 			request: z.object({
 				id: market.shape.id
 			}),
@@ -36,7 +33,6 @@ export const api = {
 			})
 		},
 		'/create': {
-			method: 'POST',
 			request: z.object({
 				projectId: project.shape.id,
 				name: market.shape.name
@@ -48,7 +44,6 @@ export const api = {
 			})
 		},
 		'/rename': {
-			method: 'PATCH',
 			request: z.object({
 				id: market.shape.id,
 				name: market.shape.name
@@ -58,11 +53,15 @@ export const api = {
 			})
 		},
 		'/remove': {
-			method: 'DELETE',
+			stringifyRequest: z
+				.object({
+					id: z.string()
+				})
+				.transform(({ id }) => ({ id: Number(id) })),
 			request: z.object({
 				id: market.shape.id
 			}),
 			response: successObject
 		}
 	}
-} satisfies Api<BasePath, [CatalogsItemsBasePath, CartsItemsBasePath]>;
+} as const satisfies Api;

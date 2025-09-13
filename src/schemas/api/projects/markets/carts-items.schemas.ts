@@ -4,13 +4,15 @@ import { Api } from '../../types';
 import { successObject } from '../../common.schemas';
 import { market, catalogItem, cartItem } from '../../../db.schemas';
 
-export type BasePath = '/projects/markets/carts_items';
-
 export const api = {
 	basePath: '/projects/markets/carts_items',
 	endpoints: {
 		'/get': {
-			method: 'GET',
+			stringifyRequest: z
+				.object({
+					marketId: z.string()
+				})
+				.transform(({ marketId }) => ({ marketId: Number(marketId) })),
 			request: z.object({
 				marketId: market.shape.id
 			}),
@@ -23,7 +25,6 @@ export const api = {
 			)
 		},
 		'/add': {
-			method: 'POST',
 			request: z.object({
 				marketId: market.shape.id,
 				catalogItemId: catalogItem.shape.id
@@ -35,7 +36,6 @@ export const api = {
 			})
 		},
 		'/recount': {
-			method: 'PATCH',
 			request: z.object({
 				id: cartItem.shape.id,
 				count: cartItem.shape.count
@@ -45,18 +45,26 @@ export const api = {
 			})
 		},
 		'/remove': {
-			method: 'DELETE',
+			stringifyRequest: z
+				.object({
+					id: z.string()
+				})
+				.transform(({ id }) => ({ id: Number(id) })),
 			request: z.object({
 				id: cartItem.shape.id
 			}),
 			response: successObject
 		},
 		'/clear': {
-			method: 'DELETE',
+			stringifyRequest: z
+				.object({
+					marketId: z.string()
+				})
+				.transform(({ marketId }) => ({ marketId: Number(marketId) })),
 			request: z.object({
 				marketId: market.shape.id
 			}),
 			response: successObject
 		}
 	}
-} satisfies Api<BasePath>;
+} as const satisfies Api;

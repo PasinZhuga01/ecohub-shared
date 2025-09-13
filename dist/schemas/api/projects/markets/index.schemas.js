@@ -6,10 +6,13 @@ const common_schemas_1 = require("../../common.schemas");
 const db_schemas_1 = require("../../../db.schemas");
 exports.api = {
     basePath: '/projects/markets',
-    subPaths: ['/projects/markets/catalogs_items', '/projects/markets/carts_items'],
     endpoints: {
         '/get_list': {
-            method: 'GET',
+            stringifyRequest: zod_1.z
+                .object({
+                projectId: zod_1.z.string()
+            })
+                .transform(({ projectId }) => ({ projectId: Number(projectId) })),
             request: zod_1.z.object({
                 projectId: db_schemas_1.project.shape.id
             }),
@@ -20,7 +23,6 @@ exports.api = {
             }))
         },
         '/get': {
-            method: 'GET',
             request: zod_1.z.object({
                 id: db_schemas_1.market.shape.id
             }),
@@ -29,7 +31,6 @@ exports.api = {
             })
         },
         '/create': {
-            method: 'POST',
             request: zod_1.z.object({
                 projectId: db_schemas_1.project.shape.id,
                 name: db_schemas_1.market.shape.name
@@ -41,7 +42,6 @@ exports.api = {
             })
         },
         '/rename': {
-            method: 'PATCH',
             request: zod_1.z.object({
                 id: db_schemas_1.market.shape.id,
                 name: db_schemas_1.market.shape.name
@@ -51,7 +51,11 @@ exports.api = {
             })
         },
         '/remove': {
-            method: 'DELETE',
+            stringifyRequest: zod_1.z
+                .object({
+                id: zod_1.z.string()
+            })
+                .transform(({ id }) => ({ id: Number(id) })),
             request: zod_1.z.object({
                 id: db_schemas_1.market.shape.id
             }),

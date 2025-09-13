@@ -8,7 +8,11 @@ exports.api = {
     basePath: '/projects/markets/catalogs_items',
     endpoints: {
         '/get': {
-            method: 'GET',
+            stringifyRequest: zod_1.z
+                .object({
+                marketId: zod_1.z.string()
+            })
+                .transform(({ marketId }) => ({ marketId: Number(marketId) })),
             request: zod_1.z.object({
                 marketId: db_schemas_1.market.shape.id
             }),
@@ -20,7 +24,6 @@ exports.api = {
             }))
         },
         '/create': {
-            method: 'POST',
             request: zod_1.z.object({
                 marketId: db_schemas_1.market.shape.id,
                 name: db_schemas_1.catalogItem.shape.name,
@@ -35,7 +38,6 @@ exports.api = {
             })
         },
         '/edit': {
-            method: 'PATCH',
             request: zod_1.z.union([
                 zod_1.z.object({
                     id: db_schemas_1.catalogItem.shape.id,
@@ -53,7 +55,11 @@ exports.api = {
             })
         },
         '/remove': {
-            method: 'DELETE',
+            stringifyRequest: zod_1.z
+                .object({
+                id: zod_1.z.string()
+            })
+                .transform(({ id }) => ({ id: Number(id) })),
             request: zod_1.z.object({
                 id: db_schemas_1.catalogItem.shape.id
             }),

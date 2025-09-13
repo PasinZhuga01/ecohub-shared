@@ -8,8 +8,6 @@ exports.api = {
     basePath: '/profiles',
     endpoints: {
         '/auth': {
-            isNotTokenRequired: true,
-            method: 'POST',
             request: zod_1.z.object({
                 isRegister: zod_1.z.boolean(),
                 login: db_schemas_1.user.shape.login,
@@ -20,7 +18,6 @@ exports.api = {
             })
         },
         '/get': {
-            method: 'GET',
             request: common_schemas_1.emptyObject,
             response: zod_1.z.object({
                 login: db_schemas_1.user.shape.login

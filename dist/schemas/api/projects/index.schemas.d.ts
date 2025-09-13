@@ -1,15 +1,19 @@
 import { z } from 'zod';
-export type BasePath = '/projects';
 export declare const api: {
-    basePath: "/projects";
-    subPaths: ["/projects/currencies", "/projects/markets"];
-    endpoints: {
-        '/get_nav': {
-            method: "GET";
-            request: z.ZodObject<{
+    readonly basePath: "/projects";
+    readonly endpoints: {
+        readonly '/get_nav': {
+            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+                maxCount: z.ZodString;
+            }, z.core.$strip>, z.ZodTransform<{
+                maxCount: number;
+            }, {
+                maxCount: string;
+            }>>;
+            readonly request: z.ZodObject<{
                 maxCount: z.ZodNumber;
             }, z.core.$strip>;
-            response: z.ZodArray<z.ZodObject<{
+            readonly response: z.ZodArray<z.ZodObject<{
                 id: z.ZodNumber;
                 name: z.ZodString;
                 markets: z.ZodArray<z.ZodObject<{
@@ -18,51 +22,53 @@ export declare const api: {
                 }, z.core.$strip>>;
             }, z.core.$strip>>;
         };
-        '/get_page': {
-            method: "GET";
-            request: z.ZodObject<{}, z.core.$strict>;
-            response: z.ZodArray<z.ZodObject<{
+        readonly '/get_page': {
+            readonly request: z.ZodObject<{}, z.core.$strict>;
+            readonly response: z.ZodArray<z.ZodObject<{
                 id: z.ZodNumber;
                 name: z.ZodString;
                 interactedAt: z.ZodDate;
             }, z.core.$strip>>;
         };
-        '/get': {
-            method: "GET";
-            request: z.ZodObject<{
+        readonly '/get': {
+            readonly request: z.ZodObject<{
                 id: z.ZodNumber;
             }, z.core.$strip>;
-            response: z.ZodObject<{
+            readonly response: z.ZodObject<{
                 name: z.ZodString;
             }, z.core.$strip>;
         };
-        '/create': {
-            method: "POST";
-            request: z.ZodObject<{
+        readonly '/create': {
+            readonly request: z.ZodObject<{
                 name: z.ZodString;
             }, z.core.$strip>;
-            response: z.ZodObject<{
+            readonly response: z.ZodObject<{
                 id: z.ZodNumber;
                 name: z.ZodString;
                 interactedAt: z.ZodDate;
             }, z.core.$strip>;
         };
-        '/rename': {
-            method: "PATCH";
-            request: z.ZodObject<{
+        readonly '/rename': {
+            readonly request: z.ZodObject<{
                 id: z.ZodNumber;
                 name: z.ZodString;
             }, z.core.$strip>;
-            response: z.ZodObject<{
+            readonly response: z.ZodObject<{
                 name: z.ZodString;
             }, z.core.$strip>;
         };
-        '/remove': {
-            method: "DELETE";
-            request: z.ZodObject<{
+        readonly '/remove': {
+            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+                id: z.ZodString;
+            }, z.core.$strip>, z.ZodTransform<{
+                id: number;
+            }, {
+                id: string;
+            }>>;
+            readonly request: z.ZodObject<{
                 id: z.ZodNumber;
             }, z.core.$strip>;
-            response: z.ZodObject<{
+            readonly response: z.ZodObject<{
                 success: z.ZodLiteral<true>;
             }, z.core.$strip>;
         };

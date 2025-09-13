@@ -5,14 +5,10 @@ import { Api } from './types';
 
 import { user } from '../db.schemas';
 
-export type BasePath = '/profiles';
-
 export const api = {
 	basePath: '/profiles',
 	endpoints: {
 		'/auth': {
-			isNotTokenRequired: true,
-			method: 'POST',
 			request: z.object({
 				isRegister: z.boolean(),
 				login: user.shape.login,
@@ -23,11 +19,10 @@ export const api = {
 			})
 		},
 		'/get': {
-			method: 'GET',
 			request: emptyObject,
 			response: z.object({
 				login: user.shape.login
 			})
 		}
 	}
-} satisfies Api<BasePath>;
+} as const satisfies Api;

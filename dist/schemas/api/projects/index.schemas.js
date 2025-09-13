@@ -6,10 +6,13 @@ const common_schemas_1 = require("../common.schemas");
 const db_schemas_1 = require("../../db.schemas");
 exports.api = {
     basePath: '/projects',
-    subPaths: ['/projects/currencies', '/projects/markets'],
     endpoints: {
         '/get_nav': {
-            method: 'GET',
+            stringifyRequest: zod_1.z
+                .object({
+                maxCount: zod_1.z.string()
+            })
+                .transform(({ maxCount }) => ({ maxCount: Number(maxCount) })),
             request: zod_1.z.object({
                 maxCount: zod_1.z.number().int().min(1)
             }),
@@ -23,7 +26,6 @@ exports.api = {
             }))
         },
         '/get_page': {
-            method: 'GET',
             request: common_schemas_1.emptyObject,
             response: zod_1.z.array(zod_1.z.object({
                 id: db_schemas_1.project.shape.id,
@@ -32,7 +34,6 @@ exports.api = {
             }))
         },
         '/get': {
-            method: 'GET',
             request: zod_1.z.object({
                 id: db_schemas_1.project.shape.id
             }),
@@ -41,7 +42,6 @@ exports.api = {
             })
         },
         '/create': {
-            method: 'POST',
             request: zod_1.z.object({
                 name: db_schemas_1.project.shape.name
             }),
@@ -52,7 +52,6 @@ exports.api = {
             })
         },
         '/rename': {
-            method: 'PATCH',
             request: zod_1.z.object({
                 id: db_schemas_1.project.shape.id,
                 name: db_schemas_1.project.shape.name
@@ -62,7 +61,11 @@ exports.api = {
             })
         },
         '/remove': {
-            method: 'DELETE',
+            stringifyRequest: zod_1.z
+                .object({
+                id: zod_1.z.string()
+            })
+                .transform(({ id }) => ({ id: Number(id) })),
             request: zod_1.z.object({
                 id: db_schemas_1.project.shape.id
             }),
