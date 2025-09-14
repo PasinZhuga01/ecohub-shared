@@ -18,7 +18,7 @@ export declare const api: {
             readonly response: z.ZodArray<z.ZodObject<{
                 id: z.ZodNumber;
                 name: z.ZodString;
-                interactedAt: z.ZodDate;
+                interactedAt: z.ZodString;
             }, z.core.$strip>>;
         };
         readonly '/get': {
@@ -46,7 +46,7 @@ export declare const api: {
             readonly response: z.ZodObject<{
                 id: z.ZodNumber;
                 name: z.ZodString;
-                interactedAt: z.ZodDate;
+                interactedAt: z.ZodString;
             }, z.core.$strip>;
         };
         readonly '/rename': {

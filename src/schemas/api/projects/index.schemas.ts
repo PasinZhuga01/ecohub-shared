@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 import { BaseApi } from '../types';
-import { emptyObject, successObject } from '../common.schemas';
+import { emptyObject, interactedAtSchema, successObject } from '../common.schemas';
 import { project, market } from '../../db.schemas';
 
 export type Api = typeof api;
@@ -39,7 +39,7 @@ export const api = {
 				z.object({
 					id: project.shape.id,
 					name: project.shape.name,
-					interactedAt: project.shape.interacted_at
+					interactedAt: interactedAtSchema
 				})
 			)
 		},
@@ -65,7 +65,7 @@ export const api = {
 			response: z.object({
 				id: project.shape.id,
 				name: project.shape.name,
-				interactedAt: project.shape.interacted_at
+				interactedAt: interactedAtSchema
 			})
 		},
 		'/rename': {

@@ -20,7 +20,7 @@ exports.api = {
             response: zod_1.z.array(zod_1.z.object({
                 id: db_schemas_1.market.shape.id,
                 name: db_schemas_1.market.shape.name,
-                interactedAt: db_schemas_1.market.shape.interacted_at
+                interactedAt: common_schemas_1.interactedAtSchema
             }))
         },
         '/get': {
@@ -46,7 +46,7 @@ exports.api = {
             response: zod_1.z.object({
                 id: db_schemas_1.market.shape.id,
                 name: db_schemas_1.market.shape.name,
-                interactedAt: db_schemas_1.market.shape.interacted_at
+                interactedAt: common_schemas_1.interactedAtSchema
             })
         },
         '/rename': {
