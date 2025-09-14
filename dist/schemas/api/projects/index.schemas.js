@@ -9,7 +9,7 @@ exports.api = {
     endpoints: {
         '/get_nav': {
             method: 'GET',
-            stringifyRequest: zod_1.z
+            rawRequest: zod_1.z
                 .object({
                 maxCount: zod_1.z.string()
             })
@@ -37,7 +37,7 @@ exports.api = {
         },
         '/get': {
             method: 'GET',
-            stringifyRequest: zod_1.z
+            rawRequest: zod_1.z
                 .object({
                 id: zod_1.z.string()
             })
@@ -72,7 +72,7 @@ exports.api = {
         },
         '/remove': {
             method: 'DELETE',
-            stringifyRequest: zod_1.z
+            rawRequest: zod_1.z
                 .object({
                 id: zod_1.z.string()
             })

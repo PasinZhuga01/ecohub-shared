@@ -5,7 +5,7 @@ export declare const api: {
     readonly endpoints: {
         readonly '/get_nav': {
             readonly method: "GET";
-            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+            readonly rawRequest: z.ZodPipe<z.ZodObject<{
                 maxCount: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{
                 maxCount: number;
@@ -35,7 +35,7 @@ export declare const api: {
         };
         readonly '/get': {
             readonly method: "GET";
-            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+            readonly rawRequest: z.ZodPipe<z.ZodObject<{
                 id: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{
                 id: number;
@@ -72,7 +72,7 @@ export declare const api: {
         };
         readonly '/remove': {
             readonly method: "DELETE";
-            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+            readonly rawRequest: z.ZodPipe<z.ZodObject<{
                 id: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{
                 id: number;

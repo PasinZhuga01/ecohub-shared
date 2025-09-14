@@ -9,7 +9,7 @@ exports.api = {
     endpoints: {
         '/get_list': {
             method: 'GET',
-            stringifyRequest: zod_1.z
+            rawRequest: zod_1.z
                 .object({
                 projectId: zod_1.z.string()
             })
@@ -25,7 +25,7 @@ exports.api = {
         },
         '/get': {
             method: 'GET',
-            stringifyRequest: zod_1.z
+            rawRequest: zod_1.z
                 .object({
                 id: zod_1.z.string()
             })
@@ -61,7 +61,7 @@ exports.api = {
         },
         '/remove': {
             method: 'DELETE',
-            stringifyRequest: zod_1.z
+            rawRequest: zod_1.z
                 .object({
                 id: zod_1.z.string()
             })

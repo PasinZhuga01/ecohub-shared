@@ -11,7 +11,7 @@ export const api = {
 	endpoints: {
 		'/get': {
 			method: 'GET',
-			stringifyRequest: z
+			rawRequest: z
 				.object({
 					marketId: z.string()
 				})
@@ -51,7 +51,7 @@ export const api = {
 		},
 		'/remove': {
 			method: 'DELETE',
-			stringifyRequest: z
+			rawRequest: z
 				.object({
 					id: z.string()
 				})
@@ -63,7 +63,7 @@ export const api = {
 		},
 		'/clear': {
 			method: 'DELETE',
-			stringifyRequest: z
+			rawRequest: z
 				.object({
 					marketId: z.string()
 				})

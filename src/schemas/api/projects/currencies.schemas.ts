@@ -11,7 +11,7 @@ export const api = {
 	endpoints: {
 		'/get': {
 			method: 'GET',
-			stringifyRequest: z
+			rawRequest: z
 				.object({
 					projectId: z.string()
 				})
@@ -30,7 +30,7 @@ export const api = {
 		},
 		'/create': {
 			method: 'POST',
-			stringifyRequest: z
+			rawRequest: z
 				.object({
 					projectId: z.string(),
 					name: z.string(),
@@ -61,7 +61,7 @@ export const api = {
 		},
 		'/remove': {
 			method: 'DELETE',
-			stringifyRequest: z
+			rawRequest: z
 				.object({
 					id: z.string()
 				})

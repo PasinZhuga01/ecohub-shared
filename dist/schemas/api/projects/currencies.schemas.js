@@ -20,7 +20,7 @@ exports.api = {
     endpoints: {
         '/get': {
             method: 'GET',
-            stringifyRequest: zod_1.z
+            rawRequest: zod_1.z
                 .object({
                 projectId: zod_1.z.string()
             })
@@ -37,7 +37,7 @@ exports.api = {
         },
         '/create': {
             method: 'POST',
-            stringifyRequest: zod_1.z
+            rawRequest: zod_1.z
                 .object({
                 projectId: zod_1.z.string(),
                 name: zod_1.z.string(),
@@ -71,7 +71,7 @@ exports.api = {
         },
         '/remove': {
             method: 'DELETE',
-            stringifyRequest: zod_1.z
+            rawRequest: zod_1.z
                 .object({
                 id: zod_1.z.string()
             })

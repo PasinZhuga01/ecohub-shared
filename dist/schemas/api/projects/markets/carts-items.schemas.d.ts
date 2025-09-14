@@ -5,7 +5,7 @@ export declare const api: {
     readonly endpoints: {
         readonly '/get': {
             readonly method: "GET";
-            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+            readonly rawRequest: z.ZodPipe<z.ZodObject<{
                 marketId: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{
                 marketId: number;
@@ -45,7 +45,7 @@ export declare const api: {
         };
         readonly '/remove': {
             readonly method: "DELETE";
-            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+            readonly rawRequest: z.ZodPipe<z.ZodObject<{
                 id: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{
                 id: number;
@@ -61,7 +61,7 @@ export declare const api: {
         };
         readonly '/clear': {
             readonly method: "DELETE";
-            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+            readonly rawRequest: z.ZodPipe<z.ZodObject<{
                 marketId: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{
                 marketId: number;

@@ -5,7 +5,7 @@ export declare const api: {
     readonly endpoints: {
         readonly '/get': {
             readonly method: "GET";
-            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+            readonly rawRequest: z.ZodPipe<z.ZodObject<{
                 projectId: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{
                 projectId: number;
@@ -24,7 +24,7 @@ export declare const api: {
         };
         readonly '/create': {
             readonly method: "POST";
-            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+            readonly rawRequest: z.ZodPipe<z.ZodObject<{
                 projectId: z.ZodString;
                 name: z.ZodString;
                 rate: z.ZodString;
@@ -61,7 +61,7 @@ export declare const api: {
         };
         readonly '/remove': {
             readonly method: "DELETE";
-            readonly stringifyRequest: z.ZodPipe<z.ZodObject<{
+            readonly rawRequest: z.ZodPipe<z.ZodObject<{
                 id: z.ZodString;
             }, z.core.$strip>, z.ZodTransform<{
                 id: number;
