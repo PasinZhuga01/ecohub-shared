@@ -1,4 +1,5 @@
 import { z } from 'zod';
+export type Api = typeof api;
 export declare const api: {
     readonly basePath: "/profiles";
     readonly endpoints: {

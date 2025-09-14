@@ -1,3 +1,3 @@
-export { api as marketsApi } from './index.schemas';
-export { api as catalogsItemsApi } from './catalogs-items.schemas';
-export { api as cartsItemsApi } from './carts-items.schemas';
+export { api as marketsApi, Api as MarketsApi } from './index.schemas';
+export { api as catalogsItemsApi, Api as CatalogsItemsApi } from './catalogs-items.schemas';
+export { api as cartsItemsApi, Api as CartsItemsApi } from './carts-items.schemas';

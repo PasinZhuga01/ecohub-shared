@@ -1,8 +1,10 @@
 import { z } from 'zod';
 
-import { Api } from '../types';
+import { BaseApi } from '../types';
 import { successObject } from '../common.schemas';
 import { project, currency } from '../../db.schemas';
+
+export type Api = typeof api;
 
 export const api = {
 	basePath: '/projects/currencies',
@@ -78,4 +80,4 @@ export const api = {
 			response: successObject
 		}
 	}
-} as const satisfies Api;
+} as const satisfies BaseApi;

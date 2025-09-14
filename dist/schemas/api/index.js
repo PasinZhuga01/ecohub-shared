@@ -41,3 +41,4 @@ var profiles_schemas_1 = require("./profiles.schemas");
 Object.defineProperty(exports, "profilesApi", { enumerable: true, get: function () { return profiles_schemas_1.api; } });
 exports.CommonSchemas = __importStar(require("./common.schemas"));
 __exportStar(require("./projects"), exports);
+__exportStar(require("./types"), exports);

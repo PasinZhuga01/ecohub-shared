@@ -1,9 +1,11 @@
 import { z } from 'zod';
 
 import { emptyObject } from './common.schemas';
-import { Api } from './types';
+import { BaseApi } from './types';
 
 import { user } from '../db.schemas';
+
+export type Api = typeof api;
 
 export const api = {
 	basePath: '/profiles',
@@ -27,4 +29,4 @@ export const api = {
 			})
 		}
 	}
-} as const satisfies Api;
+} as const satisfies BaseApi;
