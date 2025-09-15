@@ -13,7 +13,7 @@ export type BaseApi = {
 };
 export type Method = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 export type RelativeRoute<T extends BaseApi> = keyof T['endpoints'];
-export type AbsoluteRoute<T extends BaseApi> = `${T['basePath']}${RelativeRoute<T> & string}`;
+export type AbsoluteRoute<T extends BaseApi, K extends keyof T['endpoints'] = keyof T['endpoints']> = `${T['basePath']}${K & string}`;
 export type Request<T extends BaseApi, K extends RelativeRoute<T>> = z.input<T['endpoints'][K]['request']>;
 export type Response<T extends BaseApi, K extends RelativeRoute<T>> = z.input<T['endpoints'][K]['response']>;
 export type RawRequest<T extends BaseApi, K extends RelativeRoute<T>> = T['endpoints'][K] extends {
