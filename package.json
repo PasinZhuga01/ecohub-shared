@@ -33,6 +33,11 @@
 			"import": "./dist/http/types.js",
 			"require": "./dist/http/types.js",
 			"types": "./dist/http/types.d.ts"
+		},
+		"./errors": {
+			"import": "./dist/errors/index.js",
+			"require": "./dist/errors/index.js",
+			"types": "./dist/errors/index.d.ts"
 		}
 	}
 }
