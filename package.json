@@ -14,30 +14,25 @@
 		"zod": "^4.0.17"
 	},
 	"exports": {
-		"./schemas/db": {
-			"import": "./dist/schemas/db.schemas.js",
-			"require": "./dist/schemas/db.schemas.js",
-			"types": "./dist/schemas/db.schemas.d.ts"
-		},
-		"./schemas/api": {
-			"import": "./dist/schemas/api/index.js",
-			"require": "./dist/schemas/api/index.js",
-			"types": "./dist/schemas/api/index.d.ts"
-		},
-		"./http/codes": {
-			"import": "./dist/http/codes.js",
-			"require": "./dist/http/codes.js",
-			"types": "./dist/http/codes.d.ts"
-		},
-		"./http/types": {
-			"import": "./dist/http/types.js",
-			"require": "./dist/http/types.js",
-			"types": "./dist/http/types.d.ts"
+		"./db": {
+			"import": "./dist/db/index.js",
+			"require": "./dist/db/index.js",
+			"types": "./dist/db/index.d.ts"
 		},
 		"./errors": {
 			"import": "./dist/errors/index.js",
 			"require": "./dist/errors/index.js",
 			"types": "./dist/errors/index.d.ts"
+		},
+		"./http/api": {
+			"import": "./dist/http/api/index.js",
+			"require": "./dist/http/api/index.js",
+			"types": "./dist/http/api/index.d.ts"
+		},
+		"./http/payloads": {
+			"import": "./dist/http/payloads/index.js",
+			"require": "./dist/http/payloads/index.js",
+			"types": "./dist/http/payloads/index.d.ts"
 		}
 	}
 }
