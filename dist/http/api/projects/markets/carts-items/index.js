@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.cartsItemsApi = void 0;
 const zod_1 = require("zod");
-const schemas_1 = require("../../../schemas");
 const markets_1 = require("../../../../../db/projects/markets");
+const api_1 = require("../../..");
 exports.cartsItemsApi = {
     basePath: '/projects/markets/carts_items',
     endpoints: {
@@ -55,7 +55,7 @@ exports.cartsItemsApi = {
             request: zod_1.z.object({
                 id: markets_1.cartItemSchema.shape.id
             }),
-            response: schemas_1.successObjectSchema
+            response: api_1.successObjectSchema
         },
         '/clear': {
             method: 'DELETE',
@@ -67,7 +67,7 @@ exports.cartsItemsApi = {
             request: zod_1.z.object({
                 marketId: markets_1.marketSchema.shape.id
             }),
-            response: schemas_1.successObjectSchema
+            response: api_1.successObjectSchema
         }
     }
 };

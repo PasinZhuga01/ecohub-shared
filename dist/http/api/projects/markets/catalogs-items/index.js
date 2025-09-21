@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.catalogsItemsApi = void 0;
 const zod_1 = require("zod");
-const schemas_1 = require("../../../schemas");
 const markets_1 = require("../../../../../db/projects/markets");
+const api_1 = require("../../..");
 exports.catalogsItemsApi = {
     basePath: '/projects/markets/catalogs_items',
     endpoints: {
@@ -67,7 +67,7 @@ exports.catalogsItemsApi = {
             request: zod_1.z.object({
                 id: markets_1.catalogItemSchema.shape.id
             }),
-            response: schemas_1.successObjectSchema
+            response: api_1.successObjectSchema
         }
     }
 };

@@ -1,8 +1,6 @@
 import { z } from 'zod';
-
-import { emptyObjectSchema } from '../schemas';
-import { BaseApi } from '../types';
-import { userSchema } from '../../../db';
+import { userSchema } from '@db';
+import { emptyObjectSchema, BaseApi } from '@http/api';
 
 export type ProfilesApi = typeof profilesApi;
 

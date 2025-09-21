@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.profilesApi = void 0;
 const zod_1 = require("zod");
-const schemas_1 = require("../schemas");
-const db_1 = require("../../../db");
+const _db_1 = require("../../../db");
+const api_1 = require("..");
 exports.profilesApi = {
     basePath: '/profiles',
     endpoints: {
@@ -11,8 +11,8 @@ exports.profilesApi = {
             method: 'POST',
             request: zod_1.z.object({
                 isRegister: zod_1.z.boolean(),
-                login: db_1.userSchema.shape.login,
-                password: db_1.userSchema.shape.password
+                login: _db_1.userSchema.shape.login,
+                password: _db_1.userSchema.shape.password
             }),
             response: zod_1.z.object({
                 token: zod_1.z.string()
@@ -20,9 +20,9 @@ exports.profilesApi = {
         },
         '/get': {
             method: 'GET',
-            request: schemas_1.emptyObjectSchema,
+            request: api_1.emptyObjectSchema,
             response: zod_1.z.object({
-                login: db_1.userSchema.shape.login
+                login: _db_1.userSchema.shape.login
             })
         }
     }

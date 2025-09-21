@@ -13,8 +13,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.currenciesApi = void 0;
 const zod_1 = require("zod");
-const schemas_1 = require("../../schemas");
 const projects_1 = require("../../../../db/projects");
+const api_1 = require("../..");
 exports.currenciesApi = {
     basePath: '/projects/currencies',
     endpoints: {
@@ -79,7 +79,7 @@ exports.currenciesApi = {
             request: zod_1.z.object({
                 id: projects_1.currencySchema.shape.id
             }),
-            response: schemas_1.successObjectSchema
+            response: api_1.successObjectSchema
         },
         '/shift': {
             method: 'PATCH',
@@ -87,7 +87,7 @@ exports.currenciesApi = {
                 projectId: projects_1.projectSchema.shape.id,
                 value: projects_1.currencySchema.shape.rate
             }),
-            response: schemas_1.successObjectSchema
+            response: api_1.successObjectSchema
         }
     }
 };

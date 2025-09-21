@@ -1,8 +1,6 @@
 import { z } from 'zod';
-
-import { successObjectSchema } from '../../../schemas';
-import { BaseApi } from '../../../types';
-import { marketSchema, catalogItemSchema } from '../../../../../db/projects/markets';
+import { marketSchema, catalogItemSchema } from '@db/projects/markets';
+import { successObjectSchema, BaseApi } from '@http/api';
 
 export type CatalogsItemsApi = typeof catalogsItemsApi;
 

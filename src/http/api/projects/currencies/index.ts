@@ -1,8 +1,6 @@
 import { z } from 'zod';
-
-import { successObjectSchema } from '../../schemas';
-import { BaseApi } from '../../types';
-import { projectSchema, currencySchema } from '../../../../db/projects';
+import { projectSchema, currencySchema } from '@db/projects';
+import { successObjectSchema, BaseApi } from '@http/api';
 
 export type CurrenciesApi = typeof currenciesApi;
 

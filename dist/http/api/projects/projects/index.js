@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.projectsApi = void 0;
 const zod_1 = require("zod");
-const schemas_1 = require("../../schemas");
 const projects_1 = require("../../../../db/projects");
 const markets_1 = require("../../../../db/projects/markets");
+const api_1 = require("../..");
 exports.projectsApi = {
     basePath: '/projects',
     endpoints: {
@@ -29,11 +29,11 @@ exports.projectsApi = {
         },
         '/get_page': {
             method: 'GET',
-            request: schemas_1.emptyObjectSchema,
+            request: api_1.emptyObjectSchema,
             response: zod_1.z.array(zod_1.z.object({
                 id: projects_1.projectSchema.shape.id,
                 name: projects_1.projectSchema.shape.name,
-                interactedAt: schemas_1.interactedAtSchema
+                interactedAt: api_1.interactedAtSchema
             }))
         },
         '/get': {
@@ -58,7 +58,7 @@ exports.projectsApi = {
             response: zod_1.z.object({
                 id: projects_1.projectSchema.shape.id,
                 name: projects_1.projectSchema.shape.name,
-                interactedAt: schemas_1.interactedAtSchema
+                interactedAt: api_1.interactedAtSchema
             })
         },
         '/rename': {
@@ -81,7 +81,7 @@ exports.projectsApi = {
             request: zod_1.z.object({
                 id: projects_1.projectSchema.shape.id
             }),
-            response: schemas_1.successObjectSchema
+            response: api_1.successObjectSchema
         }
     }
 };
