@@ -8,10 +8,15 @@
 	"license": "ISC",
 	"description": "",
 	"devDependencies": {
+		"@eslint/js": "^9.36.0",
+		"eslint": "^9.36.0",
+		"eslint-plugin-import": "^2.32.0",
+		"globals": "^16.4.0",
 		"nodemon": "^3.1.10",
 		"rimraf": "^6.0.1",
 		"tsc-alias": "^1.8.16",
 		"typescript": "^5.9.2",
+		"typescript-eslint": "^8.44.0",
 		"zod": "^4.0.17"
 	},
 	"exports": {
@@ -55,5 +60,8 @@
 			"require": "./dist/http/payloads/index.js",
 			"types": "./dist/http/payloads/index.d.ts"
 		}
+	},
+	"dependencies": {
+		"jiti": "^2.5.1"
 	}
 }

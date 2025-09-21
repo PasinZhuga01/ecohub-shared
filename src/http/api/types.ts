@@ -7,7 +7,7 @@ export type BaseApi = {
 			method: Method;
 			request: z.ZodType;
 			response: z.ZodType;
-		} & ({ rawRequest: z.ZodPipe<z.ZodObject<z.ZodRawShape>, z.ZodTransform<object>> } | {});
+		} & ({ rawRequest: z.ZodPipe<z.ZodObject<z.ZodRawShape>, z.ZodTransform<object>> } | object);
 	};
 };
 

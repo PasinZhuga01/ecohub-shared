@@ -40,5 +40,6 @@
 		"allowUnusedLabels": false,
 		"allowUnreachableCode": false,
 		"skipLibCheck": true
-	}
+	},
+	"exclude": ["eslint.config.mts", "dist/*"]
 }

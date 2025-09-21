@@ -8,7 +8,7 @@ export type BaseApi = {
             response: z.ZodType;
         } & ({
             rawRequest: z.ZodPipe<z.ZodObject<z.ZodRawShape>, z.ZodTransform<object>>;
-        } | {});
+        } | object);
     };
 };
 export type Method = 'GET' | 'POST' | 'PATCH' | 'DELETE';
