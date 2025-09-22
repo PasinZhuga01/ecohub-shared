@@ -1,23 +1,22 @@
 import { z } from 'zod';
 
-import { identifiedObjectSchema } from '../..';
+import { identifiedObjectSchema, interactedAtAwareObjectSchema } from '../..';
 
-export const marketSchema = identifiedObjectSchema.extend({
-	project_id: identifiedObjectSchema.shape.id,
-	name: z.string().min(1).max(80),
-	interacted_at: z.date()
+export const marketSchema = identifiedObjectSchema.extend(interactedAtAwareObjectSchema.shape).extend({
+	projectId: identifiedObjectSchema.shape.id,
+	name: z.string().min(1).max(80)
 });
 
 export const catalogItemSchema = identifiedObjectSchema.extend({
-	market_id: identifiedObjectSchema.shape.id,
+	marketId: identifiedObjectSchema.shape.id,
 	name: z.string().min(1).max(80),
 	count: z.number().int().min(1),
 	price: z.number().int().min(1)
 });
 
 export const cartItemSchema = identifiedObjectSchema.extend({
-	market_id: identifiedObjectSchema.shape.id,
-	catalog_item_id: identifiedObjectSchema.shape.id,
+	marketId: identifiedObjectSchema.shape.id,
+	catalogItemId: identifiedObjectSchema.shape.id,
 	count: z.number().int().min(1)
 });
 

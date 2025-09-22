@@ -30,7 +30,7 @@ exports.currenciesApi = {
             }),
             response: zod_1.z.array(zod_1.z.object({
                 id: projects_1.currencySchema.shape.id,
-                iconSrc: projects_1.currencySchema.shape.icon_src,
+                iconSrc: projects_1.currencySchema.shape.iconSrc,
                 name: projects_1.currencySchema.shape.name,
                 rate: projects_1.currencySchema.shape.rate
             }))
@@ -54,7 +54,7 @@ exports.currenciesApi = {
             }),
             response: zod_1.z.object({
                 id: projects_1.currencySchema.shape.id,
-                iconSrc: projects_1.currencySchema.shape.icon_src,
+                iconSrc: projects_1.currencySchema.shape.iconSrc,
                 name: projects_1.currencySchema.shape.name,
                 rate: projects_1.currencySchema.shape.rate
             })

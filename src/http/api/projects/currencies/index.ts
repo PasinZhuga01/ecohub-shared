@@ -20,7 +20,7 @@ export const currenciesApi = {
 			response: z.array(
 				z.object({
 					id: currencySchema.shape.id,
-					iconSrc: currencySchema.shape.icon_src,
+					iconSrc: currencySchema.shape.iconSrc,
 					name: currencySchema.shape.name,
 					rate: currencySchema.shape.rate
 				})
@@ -42,7 +42,7 @@ export const currenciesApi = {
 			}),
 			response: z.object({
 				id: currencySchema.shape.id,
-				iconSrc: currencySchema.shape.icon_src,
+				iconSrc: currencySchema.shape.iconSrc,
 				name: currencySchema.shape.name,
 				rate: currencySchema.shape.rate
 			})
