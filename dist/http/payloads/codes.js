@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+exports.codes = void 0;
+exports.codes = {
     INVALID_CREDENTIALS: 400,
     INVALID_RELATIONS: 400,
     LOGIN_TAKEN: 400,

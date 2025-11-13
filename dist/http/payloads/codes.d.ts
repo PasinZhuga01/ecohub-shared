@@ -1,4 +1,4 @@
-declare const _default: {
+export declare const codes: {
     readonly INVALID_CREDENTIALS: 400;
     readonly INVALID_RELATIONS: 400;
     readonly LOGIN_TAKEN: 400;
@@ -8,4 +8,3 @@ declare const _default: {
     readonly NAME_TAKEN: 409;
     readonly INVALID_FORMAT: 422;
 };
-export default _default;

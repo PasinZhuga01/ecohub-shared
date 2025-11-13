@@ -1,2 +1,2 @@
-export { default as codes } from './codes';
+export * from './codes';
 export * from './types';

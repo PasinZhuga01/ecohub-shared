@@ -1,5 +1,5 @@
-import codes from './codes';
-interface BaseErrorPayload<T extends keyof typeof codes> {
+import { codes } from './codes';
+interface BaseErrorPayload<T extends Code> {
     code: T;
 }
 interface FormatErrorPayload extends BaseErrorPayload<'INVALID_FORMAT'> {
@@ -22,9 +22,11 @@ interface RelationsErrorPayload extends BaseErrorPayload<'INVALID_RELATIONS'> {
     };
 }
 type EmptyErrorPayload = BaseErrorPayload<'INVALID_SESSION' | 'ACCESS_DENIED' | 'INVALID_CREDENTIALS' | 'LOGIN_TAKEN'>;
+export type Codes = typeof codes;
+export type Code = keyof Codes;
 export type Resource = 'profile' | 'project' | 'currency' | 'market' | 'catalog_item' | 'cart_item';
 export type ErrorPayload = EmptyErrorPayload | FormatErrorPayload | ResourceErrorPayload | RelationsErrorPayload;
 export type ErrorResponse = {
-    status: (typeof codes)[keyof typeof codes];
+    status: Codes[Code];
 } & ErrorPayload;
 export {};

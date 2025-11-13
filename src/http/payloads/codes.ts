@@ -1,4 +1,4 @@
-export default {
+export const codes = {
 	INVALID_CREDENTIALS: 400,
 	INVALID_RELATIONS: 400,
 	LOGIN_TAKEN: 400,

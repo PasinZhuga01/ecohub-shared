@@ -1,8 +1,8 @@
-import codes from './codes';
+import { codes } from './codes';
 
 /* interfaces */
 
-interface BaseErrorPayload<T extends keyof typeof codes> {
+interface BaseErrorPayload<T extends Code> {
 	code: T;
 }
 
@@ -22,7 +22,10 @@ type EmptyErrorPayload = BaseErrorPayload<'INVALID_SESSION' | 'ACCESS_DENIED' | 
 
 /* types */
 
+export type Codes = typeof codes;
+export type Code = keyof Codes;
+
 export type Resource = 'profile' | 'project' | 'currency' | 'market' | 'catalog_item' | 'cart_item';
 
 export type ErrorPayload = EmptyErrorPayload | FormatErrorPayload | ResourceErrorPayload | RelationsErrorPayload;
-export type ErrorResponse = { status: (typeof codes)[keyof typeof codes] } & ErrorPayload;
+export type ErrorResponse = { status: Codes[Code] } & ErrorPayload;
