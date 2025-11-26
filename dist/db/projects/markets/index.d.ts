@@ -3,6 +3,7 @@ export declare const marketSchema: z.ZodObject<{
     id: z.ZodNumber;
     interactedAt: z.ZodDate;
     projectId: z.ZodNumber;
+    currencyId: z.ZodNumber;
     name: z.ZodString;
 }, z.core.$strip>;
 export declare const catalogItemSchema: z.ZodObject<{

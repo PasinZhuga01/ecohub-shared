@@ -4,6 +4,7 @@ import { identifiedObjectSchema, interactedAtAwareObjectSchema } from '../..';
 
 export const marketSchema = identifiedObjectSchema.extend(interactedAtAwareObjectSchema.shape).extend({
 	projectId: identifiedObjectSchema.shape.id,
+	currencyId: identifiedObjectSchema.shape.id,
 	name: z.string().min(1).max(80)
 });
 

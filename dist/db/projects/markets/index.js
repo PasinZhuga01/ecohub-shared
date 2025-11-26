@@ -5,6 +5,7 @@ const zod_1 = require("zod");
 const __1 = require("../..");
 exports.marketSchema = __1.identifiedObjectSchema.extend(__1.interactedAtAwareObjectSchema.shape).extend({
     projectId: __1.identifiedObjectSchema.shape.id,
+    currencyId: __1.identifiedObjectSchema.shape.id,
     name: zod_1.z.string().min(1).max(80)
 });
 exports.catalogItemSchema = __1.identifiedObjectSchema.extend({
