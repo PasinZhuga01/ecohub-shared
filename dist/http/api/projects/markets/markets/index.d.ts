@@ -49,6 +49,16 @@ export declare const marketsApi: {
                 interactedAt: z.ZodString;
             }, z.core.$strip>;
         };
+        readonly '/set_currency': {
+            readonly method: "PATCH";
+            readonly request: z.ZodObject<{
+                marketId: z.ZodNumber;
+                currencyId: z.ZodNumber;
+            }, z.core.$strip>;
+            readonly response: z.ZodObject<{
+                success: z.ZodLiteral<true>;
+            }, z.core.$strip>;
+        };
         readonly '/rename': {
             readonly method: "PATCH";
             readonly request: z.ZodObject<{

@@ -50,6 +50,14 @@ exports.marketsApi = {
                 interactedAt: api_1.interactedAtSchema
             })
         },
+        '/set_currency': {
+            method: 'PATCH',
+            request: zod_1.z.object({
+                marketId: markets_1.marketSchema.shape.id,
+                currencyId: projects_1.currencySchema.shape.id
+            }),
+            response: api_1.successObjectSchema
+        },
         '/rename': {
             method: 'PATCH',
             request: zod_1.z.object({

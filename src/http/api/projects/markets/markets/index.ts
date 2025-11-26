@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { projectSchema } from '@db/projects';
+import { currencySchema, projectSchema } from '@db/projects';
 import { marketSchema } from '@db/projects/markets';
 import { interactedAtSchema, successObjectSchema, BaseApi } from '@http/api';
 
@@ -51,6 +51,14 @@ export const marketsApi = {
 				name: marketSchema.shape.name,
 				interactedAt: interactedAtSchema
 			})
+		},
+		'/set_currency': {
+			method: 'PATCH',
+			request: z.object({
+				marketId: marketSchema.shape.id,
+				currencyId: currencySchema.shape.id
+			}),
+			response: successObjectSchema
 		},
 		'/rename': {
 			method: 'PATCH',
