@@ -35,6 +35,7 @@ export declare const marketsApi: {
             }, z.core.$strip>;
             readonly response: z.ZodObject<{
                 name: z.ZodString;
+                currencyId: z.ZodNullable<z.ZodNumber>;
             }, z.core.$strip>;
         };
         readonly '/create': {

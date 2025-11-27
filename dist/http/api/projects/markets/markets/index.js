@@ -35,7 +35,8 @@ exports.marketsApi = {
                 id: markets_1.marketSchema.shape.id
             }),
             response: zod_1.z.object({
-                name: markets_1.marketSchema.shape.name
+                name: markets_1.marketSchema.shape.name,
+                currencyId: markets_1.marketSchema.shape.currencyId
             })
         },
         '/create': {

@@ -37,7 +37,8 @@ export const marketsApi = {
 				id: marketSchema.shape.id
 			}),
 			response: z.object({
-				name: marketSchema.shape.name
+				name: marketSchema.shape.name,
+				currencyId: marketSchema.shape.currencyId
 			})
 		},
 		'/create': {
